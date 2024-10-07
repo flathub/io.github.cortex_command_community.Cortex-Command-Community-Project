@@ -6,7 +6,7 @@ command: CortexCommand
 rename-desktop-file: CortexCommand.desktop
 rename-icon: cccp
 finish-args:
-  - --device=input
+  - --device=all #Gamepad input
   - --device=dri
   - --socket=wayland
   - --socket=fallback-x11
