@@ -60,6 +60,8 @@ modules:
         # FIXME: all files below should be removed on the next release
       - type: patch
         path: runner.patch
+      - type: patch
+        path: luabind-error-check.patch
       - type: file
         dest-filename: cccp.svg
         url: https://raw.githubusercontent.com/cortex-command-community/Cortex-Command-Community-Project/f64e3a0177723854220acdc60b37650809087920/Resources/io.github.cortex_command_community.Cortex-Command-Community-Project.svg
