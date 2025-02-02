@@ -65,6 +65,9 @@ modules:
       - type: patch
         path: supportedversion.patch
         sha256: 202ea4f7dd60abb41d28000ec5a425ee87a7269c1e08a132f897ddd0295d1fd6
+      - type: patch
+        path: server-crash.patch
+        sha256: 17465bfe9250cc3344aec3fdbb9baa3406504645edd5772b5fcb232a70d63539
       - type: file
         dest-filename: cccp.svg
         url: https://raw.githubusercontent.com/cortex-command-community/Cortex-Command-Community-Project/f64e3a0177723854220acdc60b37650809087920/Resources/io.github.cortex_command_community.Cortex-Command-Community-Project.svg
