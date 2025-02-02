@@ -1,0 +1,13 @@
+diff --git a/Source/Managers/NetworkServer.cpp b/Source/Managers/NetworkServer.cpp
+index af0f4a8d9..e930d6443 100644
+--- a/Source/Managers/NetworkServer.cpp
++++ b/Source/Managers/NetworkServer.cpp
+@@ -1715,7 +1715,7 @@ void NetworkServer::DrawStatisticsData() {
+ 		double emptyRatio = (m_EmptyBlocks[i] > 0) ? static_cast<double>(m_FullBlocks[i]) / static_cast<double>(m_EmptyBlocks[i]) : 0;
+ 
+ 		std::string playerName = " - NO PLAYER - ";
+-		if (IsPlayerConnected(i)) {
++		if (i < c_MaxClients && IsPlayerConnected(i)) {
+ 			playerName = GetPlayerName(i);
+ 		}
+ 
