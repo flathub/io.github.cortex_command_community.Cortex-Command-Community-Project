@@ -33,6 +33,7 @@ modules:
       - type: git
         url: https://github.com/zlib-ng/minizip-ng.git
         tag: 4.0.7
+        commit: fe5fedc365f7824ada0cf9a84fb79b30d5fc97a8
   - name: oneTBB
     buildsystem: cmake-ninja
     cleanup: 
@@ -44,6 +45,7 @@ modules:
       - type: git
         url: https://github.com/oneapi-src/oneTBB.git
         tag: v2021.13.0
+        commit: 1c4c93fc5398c4a1acb3492c02db4699f3048dea
   - name: cortexcommand
     buildsystem: meson
     config-opts:
@@ -58,6 +60,7 @@ modules:
       - type: git
         url: https://github.com/cortex-command-community/Cortex-Command-Community-Project
         tag: v6.2.2
+        commit: 1f67f87a420c4d63c6e9c531d55889021340ad66
         # FIXME: all files below should be removed on the next release
       - type: patch
         path: runner.patch
