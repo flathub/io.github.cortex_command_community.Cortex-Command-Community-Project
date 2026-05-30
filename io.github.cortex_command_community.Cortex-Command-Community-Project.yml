@@ -1,6 +1,6 @@
 app-id: io.github.cortex_command_community.Cortex-Command-Community-Project
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: CortexCommand
 rename-desktop-file: CortexCommand.desktop
@@ -14,28 +14,27 @@ finish-args:
   - --socket=pulseaudio
   - --share=network
 cleanup:
-  - '/include'
-  - '/lib/pkgconfig'
-  - '/lib/cmake'
+  - /include
+  - /lib/pkgconfig
+  - /lib/cmake
+  - /share/doc
   - '*.xpm'
   - '*.a'
 modules:
   - shared-modules/luajit/luajit.json
+  - shared-modules/SDL2/SDL2_image.json
   - name: minizip
     buildsystem: cmake-ninja
     config-opts:
       - -DMZ_COMPAT=ON
       - -DBUILD_SHARED_LIBS=ON
-    cleanup: 
-      - '/share'
     sources:
       - type: git
         url: https://github.com/zlib-ng/minizip-ng.git
         tag: 4.0.7
+        commit: fe5fedc365f7824ada0cf9a84fb79b30d5fc97a8
   - name: oneTBB
     buildsystem: cmake-ninja
-    cleanup: 
-      - '/share'
     config-opts:
       - -DTBB_STRICT=OFF
       - -DTBB_TEST=OFF
@@ -43,6 +42,7 @@ modules:
       - type: git
         url: https://github.com/oneapi-src/oneTBB.git
         tag: v2021.13.0
+        commit: 1c4c93fc5398c4a1acb3492c02db4699f3048dea
   - name: cortexcommand
     buildsystem: meson
     config-opts:
@@ -52,11 +52,12 @@ modules:
       - -Dinstall_runner=true
     post-install:
       - install -Dm644 ${FLATPAK_BUILDER_BUILDDIR}/cccp.svg -t ${FLATPAK_DEST}/share/icons/hicolor/scalable/apps/
-      - install -Dm644 ${FLATPAK_BUILDER_BUILDDIR}/io.github.cortex_command_community.Cortex-Command-Community-Project.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
+      - install -Dm644 ${FLATPAK_BUILDER_BUILDDIR}/${FLATPAK_ID}.metainfo.xml -t ${FLATPAK_DEST}/share/metainfo/
     sources:
       - type: git
         url: https://github.com/cortex-command-community/Cortex-Command-Community-Project
         tag: v6.2.2
+        commit: 1f67f87a420c4d63c6e9c531d55889021340ad66
         # FIXME: all files below should be removed on the next release
       - type: patch
         path: runner.patch
@@ -64,10 +65,8 @@ modules:
         path: luabind-error-check.patch
       - type: patch
         path: supportedversion.patch
-        sha256: 202ea4f7dd60abb41d28000ec5a425ee87a7269c1e08a132f897ddd0295d1fd6
       - type: patch
         path: server-crash.patch
-        sha256: 17465bfe9250cc3344aec3fdbb9baa3406504645edd5772b5fcb232a70d63539
       - type: file
         dest-filename: cccp.svg
         url: https://raw.githubusercontent.com/cortex-command-community/Cortex-Command-Community-Project/f64e3a0177723854220acdc60b37650809087920/Resources/io.github.cortex_command_community.Cortex-Command-Community-Project.svg
