@@ -21,6 +21,7 @@ cleanup:
   - '*.a'
 modules:
   - shared-modules/luajit/luajit.json
+  - shared-modules/SDL2/SDL2_image.json
   - name: minizip
     buildsystem: cmake-ninja
     config-opts:
