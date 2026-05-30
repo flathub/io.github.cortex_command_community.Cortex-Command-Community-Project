@@ -1,6 +1,6 @@
 app-id: io.github.cortex_command_community.Cortex-Command-Community-Project
 runtime: org.freedesktop.Platform
-runtime-version: '24.08'
+runtime-version: '25.08'
 sdk: org.freedesktop.Sdk
 command: CortexCommand
 rename-desktop-file: CortexCommand.desktop
